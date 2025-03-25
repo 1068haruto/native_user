@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  root "static_pages#top" # トップページ
+  get "home", to: "home#index" # ホームページ
+
+  # ユーザー関連
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 end
