@@ -1,14 +1,14 @@
 <h1>ログイン</h1>
 
-<%= form_with url: sessions_path, local: true do |f| %>
+<%= form_with url: sessions_path, local: true, scope: :session do |f| %>
   <p>
     <%= f.label :email %><br>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, required: true %>
   </p>
 
   <p>
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, required: true %>
   </p>
 
   <p>

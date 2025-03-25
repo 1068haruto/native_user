@@ -3,22 +3,22 @@
 <%= form_with model: @user, local: true do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </p>
 
   <p>
     <%= f.label :email %><br>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, required: true %>
   </p>
 
   <p>
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, required: true %>
   </p>
 
   <p>
     <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, required: true %>
   </p>
 
   <p>
@@ -26,4 +26,4 @@
   </p>
 <% end %>
 
-<%= link_to "ログインはこちら", login_path %>
+<%= link_to "ログインはこちら", new_session_path %>
