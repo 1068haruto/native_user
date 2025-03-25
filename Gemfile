@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 7.2.2", ">= 7.2.2.1"  # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 8.0.2"              # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "sprockets-rails"                  # The original asset pipeline for Rails
 gem "pg", "~> 1.1"                     # Use postgresql as the database for Active Record
 gem "puma", ">= 5.0"                   # Use the Puma web server
