@@ -1,29 +1,29 @@
-<h1>新規登録</h1>
+<% content_for :title do %>新規登録<% end %>
 
-<%= form_with model: @user, local: true do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name, required: true %>
-  </p>
+<div class="flex justify-center">
+  <%= form_with model: @user, local: true do |f| %>
+    <div class="mb-2">
+      <%= f.label :name, '名前', class: "block" %>
+      <%= f.text_field :name, required: true, class: "border rounded" %>
+    </div>
 
-  <p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email, required: true %>
-  </p>
+    <div class="mb-2">
+      <%= f.label :email, 'メールアドレス', class: "block" %>
+      <%= f.email_field :email, required: true, class: "border rounded" %>
+    </div>
 
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, required: true %>
-  </p>
+    <div class="mb-2">
+      <%= f.label :password, 'パスワード', class: "block" %>
+      <%= f.password_field :password, required: true, class: "border rounded" %>
+    </div>
 
-  <p>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation, required: true %>
-  </p>
+    <div class="mb-2">
+      <%= f.label :password_confirmation, 'パスワード（確認用）', class: "block" %>
+      <%= f.password_field :password_confirmation, required: true, class: "border rounded" %>
+    </div>
 
-  <p>
-    <%= f.submit "登録" %>
-  </p>
-<% end %>
-
-<%= link_to "ログインはこちら", new_session_path %>
+    <div class="flex items-center justify-center">
+      <%= f.submit "登録", class: "hover:bg-blue-300 py-1 px-2 border rounded" %>
+    </div>
+  <% end %>
+</div>

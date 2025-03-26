@@ -1,19 +1,19 @@
-<h1>ログイン</h1>
+<% content_for :title do %>ログイン<% end %>
 
-<%= form_with url: sessions_path, local: true, scope: :session do |f| %>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.email_field :email, required: true %>
-  </p>
+<div class="flex justify-center">
+  <%= form_with url: sessions_path, local: true, scope: :session do |f| %>
+    <div class="mb-2">
+      <%= f.label :email, 'メールアドレス', class: "block" %>
+      <%= f.email_field :email, required: true, class: "border rounded" %>
+    </div>
 
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password, required: true %>
-  </p>
+    <div class="mb-2">
+      <%= f.label :password, 'パスワード', class: "block" %>
+      <%= f.password_field :password, required: true, class: "border rounded" %>
+    </div>
 
-  <p>
-    <%= f.submit "ログイン" %>
-  </p>
-<% end %>
-
-<%= link_to "新規登録はこちら", new_user_path %>
+    <div class="flex items-center justify-center">
+      <%= f.submit "ログイン", class: "hover:bg-blue-300 py-1 px-2 border rounded" %>
+    </div>
+  <% end %>
+</div>
