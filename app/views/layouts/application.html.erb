@@ -7,8 +7,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= yield :head %>
-
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -18,16 +16,36 @@
   </head>
 
   <body>
-    <nav>
-      <% if logged_in? %>
-        <%= link_to "ホーム", home_path %>
-        <%= link_to 'ログアウト', session_path(current_user.id), data: { turbo_method: :delete } %>
-      <% else %>
-        <%= link_to "ログイン", new_session_path %>
-        <%= link_to "新規登録", new_user_path %>
-      <% end %>
-    </nav>
+    <header class="shadow">
+      <div class="container mx-auto px-4 py-6 flex items-center justify-between">
+        <h1 class="text-xl">
+          <%= link_to 'User_native', logged_in? ? home_path : root_path %>
+        </h1>
+        <div class="flex items-center justify-center">
+          <% if flash[:notice] %>
+            <%= flash[:notice] %>
+          <% elsif flash[:alert] %>
+            <%= flash[:alert] %>
+          <% end %>
+        </div>
+        <nav class="space-x-2">
+          <% if logged_in? %>
+            <span><%= current_user.name %> さん</span>
+            <%= link_to 'ログアウト', session_path(current_user.id), data: { turbo_method: :delete } %>
+          <% else %>
+            <%= link_to "ログイン", new_session_path %>
+            <%= link_to "新規登録", new_user_path %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
 
-    <%= yield %>
+    <main class="container mx-auto px-4 py-8">
+      <%= yield %>
+    </main>
+
+    <footer class="bg-gray-100 py-4 text-center">
+      <p>© <%= Time.now.year %> Native_user</p>
+    </footer>
   </body>
 </html>

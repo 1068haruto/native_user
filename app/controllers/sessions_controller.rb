@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new; end
   
   def create
-    Rails.logger.debug "Params: #{params.inspect}" # 追加
+    Rails.logger.debug "Params: #{params.inspect}"
 
     user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
   
   def destroy
     session.delete(:user_id)
-    redirect_to root_path, notice: "ログアウトしました"
+    redirect_to root_path, notice: "ログアウトしました", status: :see_other
   end
 end
