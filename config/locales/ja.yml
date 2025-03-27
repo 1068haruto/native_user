@@ -11,3 +11,6 @@ ja:
     create:
       success: "アカウントを作成しました"
       failure: "アカウントを作成できませんでした"
+    destroy:
+      success: "アカウントを削除しました"
+      failure: "アカウントを削除できませんでした"
