@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "アカウントを作成しました"
+      redirect_to root_path, notice: I18n.t('users.create.success')
     else
+      flash.now[:alert] = I18n.t('users.create.failure')
       render :new, status: :unprocessable_entity
     end
   end
