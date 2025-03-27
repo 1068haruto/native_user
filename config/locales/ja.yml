@@ -1,0 +1,13 @@
+ja:
+  application:
+    require_login: "ログインしてください"
+  sessions:
+    create:
+      success: "ログインしました"
+      failure: "メールアドレスまたはパスワードが間違っています"
+    destroy:
+      success: "ログアウトしました"
+  users:
+    create:
+      success: "アカウントを作成しました"
+      failure: "アカウントを作成できませんでした"
